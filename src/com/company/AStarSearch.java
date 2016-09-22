@@ -28,17 +28,13 @@ public class AStarSearch {
         while (!openQueue.isEmpty()) {
             State currentState = openQueue.poll();
             closedState.add(currentState);
-            List<State> possibleNextState = currentState.getPossibleNextStates();
-            openQueue.addAll(possibleNextState);
+
+            List<State> nextPossibleState = currentState.getNextPossibleState();
+            openQueue.addAll(nextPossibleState);
 
             if (currentState.isGoal()) {
                 this.finalState = currentState;
                 break;
-            } else if (possibleNextState.isEmpty()) {
-                State nextState = openQueue.peek();
-                while (closedState.peek() != nextState) {
-                    closedState.poll();
-                }
             }
         }
 

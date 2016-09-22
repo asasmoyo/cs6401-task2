@@ -22,7 +22,7 @@ public class State {
         System.out.println(String.format("Heuristic: [f=%d g=%d h=%d]", this.getF(), this.getG(), this.getH()));
     }
 
-    public List<State> getPossibleNextStates() {
+    public List<State> getNextPossibleState() {
         List<State> possibleStates = new ArrayList<>();
 
         // move up
